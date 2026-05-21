@@ -1,5 +1,5 @@
 # utils/multi_agent.py
-
+from dotenv import load_dotenv
 from groq import Groq
 import os
 import re
@@ -10,6 +10,7 @@ from .stock import get_stock_price
 from .money_score import calculate_money_score
 
 # ✅ CORRECT WAY
+load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 

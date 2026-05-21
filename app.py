@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify, render_template
+from dotenv import load_dotenv
 import yfinance as yf
 import os
 from groq import Groq
 
 # ---------------- 🔐 SET API KEY ----------------
-os.environ["GROQ_API_KEY"] = "YOUR_API_KEY"
+load_dotenv()
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # ---------------- IMPORT UTILS ----------------
 from utils.sip import calculate_sip
@@ -14,10 +16,6 @@ from utils.money_score import calculate_money_score
 from utils.multi_agent import run_multi_agent
 
 app = Flask(__name__)
-
-# ---------------- INIT GROQ ----------------
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-
 
 # ---------------- HOME ----------------
 @app.route("/")
