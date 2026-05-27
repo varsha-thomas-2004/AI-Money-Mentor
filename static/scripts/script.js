@@ -20,11 +20,11 @@ document.querySelectorAll('.nav-item').forEach(el => {
 function setLoading(btnId, loading) {
     const btn = document.getElementById(btnId);
     if (!btn) return;
-    btn.disabled = loading;
-    btn.innerHTML = loading ? '<span class="spinner"></span>' : btn.dataset.label || btn.innerHTML;
     if (!btn.dataset.label && !loading) return;
     if (!btn.dataset.label) btn.dataset.label = btn.innerHTML;
     if (!loading) btn.innerHTML = btn.dataset.label;
+    btn.disabled = loading;
+    btn.innerHTML = loading ? '<span class="spinner"></span>' : btn.dataset.label || btn.innerHTML;
 }
 
 function showResult(id, html) {
