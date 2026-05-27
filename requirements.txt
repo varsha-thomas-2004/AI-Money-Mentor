@@ -1,5 +1,6 @@
 flask
 yfinance
+groq
 pdfplumber
 groq
 python-dotenv
